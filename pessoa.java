@@ -1,16 +1,21 @@
 public class pessoa {
-    private Long id;
+    private long id;
     private String nome;
 
+    public pessoa(String nome) {
+        this.nome = nome;
+        this.id = System.currentTimeMillis();
+    }
 
-public pessoa(String nome, Long id) {
-this.nome = nome;
-this.id = System.currentTimeMillis();
-};
+    public pessoa() {
+        this.id = System.currentTimeMillis();
+    }
 
-public pessoa (){
+    public String getNome() {
+        return nome;
+    }
 
-id = System.currentTimeMillis();
-}
-
+    public long getId() {
+        return id;
+    }
 }

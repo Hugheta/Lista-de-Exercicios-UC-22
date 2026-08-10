@@ -1,30 +1,40 @@
 public class banco {
     private int quantidade;
-    private contabancaria[]contas;
+    private contabancaria[] contas;
 
-    public banco(int tamanhoinicial){
+    public banco(int tamanhoInicial) {
         this.quantidade = 0;
-        this.contas = new contabancaria[tamanhoinicial];
-        
+        this.contas = new contabancaria[tamanhoInicial];
     }
 
-    public boolean adicionar(contabancaria novaconta) {
-        if (this.quantidade == this.contas.length){
+    public boolean adicionar(contabancaria novaConta) {
+        if (this.quantidade == this.contas.length) {
             return false;
         }
-        for (int i = 0; i < quantidade; i++ ){
-            if (contas[i] == novaconta)
-            return false;
+        for (int i = 0; i < quantidade; i++) {
+            if (contas[i] == novaConta) {
+                return false;
+            }
         }
-        this.contas[quantidade] = novaconta;
+        this.contas[quantidade] = novaConta;
         this.quantidade++;
         return true;
     }
 
-    public void recuperar() {
-        
+    public contabancaria recuperar(String agencia, String numero) {
+        for (int i = 0; i < quantidade; i++) {
+            if (contas[i].getAgencia().equals(agencia) && contas[i].getNumero().equals(numero)) {
+                return contas[i];
+            }
+        }
+        return null;
     }
-    
 
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public contabancaria[] getContas() {
+        return contas;
+    }
 }
-
